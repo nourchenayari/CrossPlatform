@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MvvmToolkitExmple.ViewModel"
+             x:Class="MvvmToolkitExmple.View.AnimalPage"
+             Title="AnimalPage"
+             BackgroundColor="LightGreen">
+
+    <ContentPage.BindingContext>
+        <vm:VMCalcul />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10" BackgroundColor="LightGreen">
+            <Label Text="On commence par le calcul de la capacité d’ingestion de la vache :"
+                   FontAttributes="Italic"
+                   TextColor="DarkGreen" />
+
+            
+
+            <Label Text="Veuillez saisir :" TextColor="DarkGreen" />
+
+            <Label Text="Poids vif (kg) vif (450-800 kg)" TextColor="DarkGreen" />
+            <Entry Placeholder="Poids " Text="{Binding CowData.PoidsVif, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" />
+
+            <Label Text="Production en Lait (kg) (5-60 kg)" TextColor="DarkGreen" />
+            <Entry Placeholder="Production en Lait " Text="{Binding CowData.ProductionLait, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" />
+
+            <Label Text="Note d'état corporel (0-5)" TextColor="DarkGreen" />
+            <Entry Placeholder="Note d'état corporel (0-5)" Text="{Binding CowData.NoteEtatCorps, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" />
+
+            <Label Text="Parité (Primipare, Multipare, Tarie)" TextColor="DarkGreen" />
+            <Entry Placeholder="Parité (Primipare, Multipare, Tarie)" Text="{Binding CowData.Parite, Mode=TwoWay}" BackgroundColor="White" TextColor="Black" />
+
+            <Label Text="Semaine de lactation  (>= 0)" TextColor="DarkGreen" />
+            <Entry Placeholder="Semaine de lactation (>= 0)" Text="{Binding CowData.SemaineLactation, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" />
+
+            <Label Text="Semaine de Gestation (>= 0)" TextColor="DarkGreen" />
+            <Entry Placeholder="Semaine de Gestation (>= 0)" Text="{Binding CowData.SemaineGestation, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" />
+
+            <Label Text="Age (mois) (>= 0 mois)" TextColor="DarkGreen" />
+            <Entry Placeholder="Age (>= 0 mois)" Text="{Binding CowData.Age, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="White" TextColor="Black" />
+
+            <Button Text="Calculer" BackgroundColor="DarkGreen" TextColor="White" Command="{Binding LoadCMD}" />
+
+            <Label Text="Résultat CI:" FontAttributes="Bold" TextColor="DarkGreen" />
+            <Label Text="{Binding ResultCI}" TextColor="Black" />
+            
+            
+            
+            <Button Text="back" Clicked="OnCalculButtonClicked"
+        BackgroundColor="DarkGreen" TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
